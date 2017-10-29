@@ -1,18 +1,15 @@
-# MultiwayClassification
+# BayesianPGMM
 
-This is an R package to perform linear classification for data with multi-way structure.  The distance-weighted discrimination (DWD) or support vector machine (SVM) classification objectives are optimized under the assumption that the multi-way coefficients have low rank [1]. 
-This package depends on the packages `DWD` (for DWD) and `kernlab` (for SVM). `DWD` is not currently available on CRAN, and so will need to be installed via its url:
-```
-install.packages("https://cran.r-project.org/src/contrib/Archive/DWD/DWD_0.11.tar.gz",repos = NULL, type = "source")
-```
-The `MultiwayClassification` package can then be installed, directly from GitHub, using the devtools library:
+This is an R package to estimates a Bayesian piecewise growth mixture model with linear segments, for a given number of latent classes and a latent number of possible change points in each class. See [1] for methodological details.
+This package requires Just Another Gibbs Sampler (JAGS) to be installed on your computer (http://mcmc-jags.sourceforge.net/), and depends on the packages `rjags`  and `label.switching`. 
+
+The `BayesianPGMM` package can then be installed, directly from GitHub, using the devtools library:
 
 ```
 install.packages(devtools)
 library(devtools)
-install_github("lockEF/MultiwayClassification")
+install_github("lockEF/BayesianPGMM")
 ``` 
 
-This methodology was developed by Eric F. Lock, Tianmeng Lyu and Lynn E. Eberly. Code for this package was primarily written by Tianmeng Lyu.     
 
-[1] Lyu, T., Lock, E.F., & Eberly, L. E. (2017). Discriminating sample groups with multi-way data. Biostatistics, 18 (3): 434–450. https://arxiv.org/abs/1606.08046 .
+[1] Lock, E.F., Kohli, N., & Bose, M. (2017). Detecting multiple random changepoints in Bayesian piecewise growth mixture models.  Biostatistics, 18 (3): 434–450. https://arxiv.org/abs/1606.08046 .
