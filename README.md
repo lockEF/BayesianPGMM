@@ -12,4 +12,4 @@ install_github("lockEF/BayesianPGMM")
 ``` 
 
 
-[1] Lock, E.F., Kohli, N., & Bose, M. (2017). Detecting multiple random changepoints in Bayesian piecewise growth mixture models.  Biostatistics, 18 (3): 434–450. https://arxiv.org/abs/1606.08046 .
+[1] Lock, E.F., Kohli, N., & Bose, M. (2017). Detecting multiple random changepoints in Bayesian piecewise growth mixture models. Psychometrika, to appear. https://arxiv.org/abs/1710.10626 .
