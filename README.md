@@ -6,7 +6,7 @@ This package requires Just Another Gibbs Sampler (JAGS) to be installed on your 
 The `BayesianPGMM` package can then be installed, directly from GitHub, using the devtools library:
 
 ```
-install.packages(devtools)
+install.packages("devtools")
 library(devtools)
 install_github("lockEF/BayesianPGMM")
 ``` 
