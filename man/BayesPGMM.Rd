@@ -78,7 +78,7 @@ C[[i]]$K[[k+1]] gives parameters for the k changepoint model for class i:
 }
 
 \author{
-XXXX
+Eric F. Lock
 }
 
 \references{
