@@ -38,7 +38,7 @@ plotPGMM <- (X,Y,Results=NA,xlab='X',ylab='Y',Colors=NULL,MeanColors=NULL,...)
 
 
 \author{
-XXXX
+Eric F. Lock
 }
 
 
