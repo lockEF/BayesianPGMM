@@ -69,11 +69,11 @@ BayesPGM(X,Y,max_cp=2,cp_prior='binomial',binom_prob=0.5,
 }
 
 \author{
-XXXX
+Eric F. Lock
 }
 
 \references{
-[1] XXXX authors XXXX (2017). Detecting multiple random changepoints in Bayesian piecewise growth mixture models. Preprint.
+[1] EF Lock, N Kohli & M Bose (2017). Detecting multiple random changepoints in Bayesian piecewise growth mixture models. Psychometrika, to appear.  
 }
 
 \examples{
