@@ -26,7 +26,7 @@ Prints a table with estimates for key parameters in each class identified by Bay
 
 
 \author{
-XXXX
+Eric F. Lock
 }
 
 
