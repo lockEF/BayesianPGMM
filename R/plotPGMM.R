@@ -33,7 +33,7 @@ if(is.list(Results)){
       cp[1:(i-1)] = Results$C[[k]]$K[[i]]$cp.mean[1:(i-1)]
     }
     ##Compute fixed-effect model for cluster i:
-    Clus_mean[[k]] = rep(0,M)
+    Clus_mean[[k]] = rep(0,100)
     for(j in 1:100){ 
       temp <- int  + b1*xvec[j]
       if(i>1){
