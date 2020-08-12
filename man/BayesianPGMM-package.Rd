@@ -24,7 +24,7 @@ Maintainer: Eric F. Lock
 }
 
 \references{
-[1] EF Lock, N Kohli & M Bose (2017). Detecting multiple random changepoints in Bayesian piecewise growth mixture models. Psychometrika, to appear.  
+[1] EF Lock, N Kohli & M Bose (2018). Detecting multiple random changepoints in Bayesian piecewise growth mixture models. Psychometrika, 83 (3): 733-750.  
 }
 
 \examples{
