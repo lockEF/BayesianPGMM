@@ -51,7 +51,7 @@ if(is.list(Results)){
   for(p in 1:n_clust){
     k <- UniqClust[p]
   for(i in Clus[[k]]){
-    points(X[i,!is.na(Y[i,])], Y[i,!is.na(Y[i,])], type = "l", col=Colors[k]))
+    points(X[i,!is.na(Y[i,])], Y[i,!is.na(Y[i,])], type = "l", col=Colors[k])
   }
   points(xvec,Clus_mean[[k]], type='l', col=MeanColors[k],lwd=4)
 }
