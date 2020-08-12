@@ -4,8 +4,9 @@ plotPGMM <- function(X, Y, Results=NA, xlab='X', ylab='Y', Colors=NULL, MeanColo
   M = dim(X)[2]
   xvec = seq(min(X),max(X),length.out=100)
 if(!is.list(Results)){
-  plot(X[1,],Y[1,], type='l', ylim = c(min(Y),max(Y)),xlab=xlab,ylab=ylab,...)
-  for(i in 2:N) lines(X[i,],Y[i,],type = 'l')
+    plot(X[1,!is.na(Y[1,]) ], Y[1, !is.na(Y[1,])], type = "l", ylim = c(min(Y,na.rm=TRUE), max(Y,na.rm=TRUE)),xlim= c(min(X,na.rm=TRUE), max(X,na.rm=TRUE)), 
+         xlab = xlab, ylab = ylab, ...)
+    for (i in 2:N) lines(X[i,!is.na(Y[i,])], Y[i,!is.na(Y[i,])], type = "l")
   return('Spaghetti plot with no PGMM results')
 }
   
@@ -45,11 +46,12 @@ if(is.list(Results)){
 }}
   if(is.null(Colors)) Colors = c('blue','red','green','gold','gray')
   if(is.null(MeanColors)) MeanColors = c('darkblue','darkred','darkgreen','gold4','darkgray')
-  plot(0,0,xlim = c(min(X),max(X)),ylim = c(min(Y),max(Y)), ylab = ylab, xlab = xlab,...)
+    plot(0, 0, xlim = c(min(X), max(X)), ylim = c(min(Y,na.rm=TRUE), 
+                                                  max(Y,na.rm=TRUE)), ylab = ylab, xlab = xlab, ...)
   for(p in 1:n_clust){
     k <- UniqClust[p]
   for(i in Clus[[k]]){
-    points(X[i,],Y[i,], type='l', col=Colors[k])
+    points(X[i,!is.na(Y[i,])], Y[i,!is.na(Y[i,])], type = "l", col=Colors[k]))
   }
   points(xvec,Clus_mean[[k]], type='l', col=MeanColors[k],lwd=4)
 }
