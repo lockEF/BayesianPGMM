@@ -60,12 +60,19 @@ BayesPGM = function(X, Y, max_cp=2, cp_prior='binomial', scale_prior='uniform', 
   Inits[[1]]$cp.mean = Inits[[2]]$cp.mean = Inits[[3]]$cp.mean=matrix(nrow=1,ncol=max_cp)
   for(i in 1:3){ for(j in 1:1){
     Inits[[i]]$mub[j,] = rowMeans(Save.fixed$b[j,,Save.fixed$K[j,,i]==getmode(Save.fixed$K[j,,i]),i])
-    Inits[[i]]$cp.mean[j,] = rowMeans(Save.fixed$cp[j,,Save.fixed$K[j,,i]==getmode(Save.fixed$K[j,,i]),i])
+    if(length(Inits[[i]]$cp.mean)<2){
+        Inits[[i]]$cp.mean[j, ] = mean(Save.fixed$cp[j,,Save.fixed$K[j, , i] == getmode(Save.fixed$K[j,, i]), i])
+      }
+      if(length(Inits[[i]]$cp.mean)>1){
+      Inits[[i]]$cp.mean[j, ] = rowMeans(Save.fixed$cp[j, 
+                                                       , Save.fixed$K[j, , i] == getmode(Save.fixed$K[j, 
+                                                                                                      , i]), i])
+      }
   }}
   Inits[[1]]$sdb = Inits[[2]]$sdb = Inits[[3]]$sdb = matrix(nrow=1,ncol=max_cp+2)
   Inits[[1]]$cp.sd = Inits[[2]]$cp.sd = Inits[[3]]$cp.sd=matrix(nrow=1,ncol=max_cp)
   for(i in 1:3){ for(j in 1:1){
-    for(k in 1:max_cp){ Inits[[i]]$cp.sd[j,k] <- (maxT-minT)/(2*max_cp)}
+    for(k in 1:max_cp){ Inits[[i]]$cp.sd[j,k] <- (maxT-minT)/(4*max_cp)}
     Inits[[i]]$sdb[j,1] <- sqrt(1/PrecParamInt)
     for(k in 2:(max_cp+2)) Inits[[i]]$sdb[j,k] <- sqrt(2/PrecParam)
   }}
