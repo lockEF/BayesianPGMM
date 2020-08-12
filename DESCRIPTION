@@ -1,8 +1,8 @@
 Package: BayesianPGMM
 Type: Package
 Title: Bayesian Piecewise Growth Mixture Modeling
-Version: 1.4
-Date: 2017-10-27
+Version: 1.5
+Date: 2020-8-12
 Author: Eric F. Lock
 Maintainer: Eric F. Lock <elock@umn.edu>
 Description: Estimates a Bayesian piecewise growth mixture model with linear segments, for a given number of latent classes and a latent number of possible change points  in each class.  
