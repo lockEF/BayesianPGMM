@@ -82,7 +82,14 @@ BayesPGMM = function(X, Y, n_clust=2, max_cp=2, cp_prior='binomial', binom_prob=
   Inits[[1]]$cp.mean = Inits[[2]]$cp.mean = Inits[[3]]$cp.mean=matrix(nrow=n_clust,ncol=max_cp)
   for(i in 1:3){ for(j in 1:n_clust){
     Inits[[i]]$mub[j,] = rowMeans(Save.fixed$b[j,,Save.fixed$K[j,,i]==getmode(Save.fixed$K[j,,i]),i])
-    Inits[[i]]$cp.mean[j,] = rowMeans(Save.fixed$cp[j,,Save.fixed$K[j,,i]==getmode(Save.fixed$K[j,,i]),i])
+    if(length(Inits[[i]]$cp.mean[j,])<2){
+        Inits[[i]]$cp.mean[j, ] = mean(Save.fixed$cp[j,,Save.fixed$K[j, , i] == getmode(Save.fixed$K[j,, i]), i])
+      }
+      if(length(Inits[[i]]$cp.mean[j,])>1){
+      Inits[[i]]$cp.mean[j, ] = rowMeans(Save.fixed$cp[j, 
+                                                       , Save.fixed$K[j, , i] == getmode(Save.fixed$K[j, 
+                                                                                                      , i]), i])
+      }
     Inits[[i]]$P = rowMeans(Save.fixed$P[,,i])
     Inits[[i]]$C = apply(Save.fixed$C[,,i],1,getmode)
   }}
