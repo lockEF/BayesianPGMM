@@ -4,8 +4,9 @@ plotPGM <- function(X, Y, Results=NA, xlab='X', ylab='Y', ...){
   M = dim(X)[2]
   xvec = seq(min(X),max(X),length.out=100)
 if(!is.list(Results)){
-  plot(X[1,],Y[1,], type='l', ylim = c(min(Y),max(Y)),xlab=xlab,ylab=ylab,...)
-  for(i in 2:N) lines(X[i,],Y[i,],type = 'l')
+  plot(X[1,!is.na(Y[1,]) ], Y[1, !is.na(Y[1,])], type = "l", ylim = c(min(Y,na.rm=TRUE), max(Y,na.rm=TRUE)),xlim= c(min(X,na.rm=TRUE), max(X,na.rm=TRUE)), 
+         xlab = xlab, ylab = ylab, ...)
+    for (i in 2:N) lines(X[i,!is.na(Y[i,])], Y[i,!is.na(Y[i,])], type = "l")
   return('Spaghetti plot with no PGMM results')
 }
   
@@ -34,10 +35,11 @@ if(is.list(Results)){
   }
   }  
 }
-  plot(0,0,xlim = c(min(X),max(X)),ylim = c(min(Y),max(Y)), ylab = ylab, xlab = xlab,...)
-  for(i in 1:dim(X)[1]){
-    points(X[i,],Y[i,], type='l', col='darkgray')
-  }
+    plot(0, 0, xlim = c(min(X), max(X)), ylim = c(min(Y,na.rm=TRUE), 
+                                                  max(Y,na.rm=TRUE)), ylab = ylab, xlab = xlab, ...)
+    for (i in 1:dim(X)[1]) {
+      points(X[i,!is.na(Y[i,])], Y[i,!is.na(Y[i,])], type = "l", col = "darkgray")
+    }
   points(xvec,Clus_mean, type='l',lwd=4)
 }
 }
