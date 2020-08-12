@@ -195,7 +195,7 @@ BayesPGM = function(X, Y, max_cp=2, cp_prior='binomial', scale_prior='uniform', 
                 'y.mean' = summary(Save$muy, FUN = 'mean')[[1]],
                 'K_prob'=K_prob,'K'=K,'error.sd'=mean(sqrt(Save$sigma2y)),'error.sd.CI'= quantile(sqrt(Save$sigma2y),probs=c(0.025,0.975)))
   if(SaveChains==TRUE){Results$Chains=Save}
-  class(Results)=PGM
+  class(Results)='PGM'
   return(Results)
 }
 
