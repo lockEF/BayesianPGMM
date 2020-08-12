@@ -11,8 +11,8 @@ Estimates a Bayesian piecewise growth mixture model with linear segments, for a 
 \tabular{ll}{
 Package: \tab BayesianPGMM-package\cr
 Type: \tab Package\cr
-Version: \tab 1.3\cr
-Date: \tab 2017-10-27\cr
+Version: \tab 1.5\cr
+Date: \tab 2020-8-12\cr
 License: \tab GPL-3\cr
 }
 
